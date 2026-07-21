@@ -9,7 +9,7 @@
   :root{--dark:#0f2b2e;--teal:#17a67b;--teal2:#0e7a5a;--ink:#20303a;--amber:#e6a817;
         --red:#d64545;--green:#2fa36b;--grey:#6b7b83;--line:#e4ebe9;--bg:#eef4f2;--fox:#e8792b;}
   body{font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;color:var(--ink);
-       background:var(--bg);line-height:1.5;padding:0 0 60px;}
+       background:var(--bg);line-height:1.5;padding:0 0 60px;touch-action:manipulation;}
   .wrap{max-width:640px;margin:0 auto;padding:0 16px;}
   header{background:linear-gradient(135deg,#0f2b2e,#17604f);color:#fff;padding:30px 16px 26px;}
   header .wrap{padding:0 16px;}
@@ -225,6 +225,12 @@
     }catch(e){ mailFallback(); }
   });
   document.getElementById('mailalt').addEventListener('click',mailFallback);
+
+  // Zoom auf Mobil komplett aus (iOS Safari ignoriert user-scalable=no):
+  ['gesturestart','gesturechange','gestureend'].forEach(function(ev){
+    document.addEventListener(ev, function(e){ e.preventDefault(); }, {passive:false});
+  });
+  document.addEventListener('dblclick', function(e){ e.preventDefault(); }, {passive:false});
 </script>
 </body>
 </html>
