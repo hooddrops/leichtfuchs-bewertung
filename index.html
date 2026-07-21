@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leichtfuchs – was hältst du davon?</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  :root{--dark:#0f2b2e;--teal:#17a67b;--teal2:#0e7a5a;--ink:#20303a;--amber:#e6a817;
+        --red:#d64545;--green:#2fa36b;--grey:#6b7b83;--line:#e4ebe9;--bg:#eef4f2;--fox:#e8792b;}
+  body{font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;color:var(--ink);
+       background:var(--bg);line-height:1.5;padding:0 0 60px;}
+  .wrap{max-width:640px;margin:0 auto;padding:0 16px;}
+  header{background:linear-gradient(135deg,#0f2b2e,#17604f);color:#fff;padding:30px 16px 26px;}
+  header .wrap{padding:0 16px;}
+  .kick{color:#8fd3bd;font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:12px;}
+  h1{font-size:30px;letter-spacing:-.5px;margin:6px 0;}
+  header p{color:#d6ede4;font-size:15px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0;
+        box-shadow:0 1px 3px rgba(15,43,46,.05);}
+  .intro{font-size:15px;} .intro b{color:var(--dark);}
+  .scalekey{display:flex;gap:6px;margin-top:12px;font-size:11.5px;text-align:center;}
+  .scalekey div{flex:1;padding:6px 4px;border-radius:8px;color:#fff;font-weight:600;}
+  .k1{background:var(--red);} .k3{background:var(--amber);} .k5{background:var(--green);}
+  .q .t{font-weight:700;font-size:17px;color:var(--dark);}
+  .q .g{font-size:13px;color:var(--grey);margin:4px 0 2px;}
+  .q .fact{font-size:12px;color:var(--teal2);background:#eaf6f1;border-radius:8px;padding:6px 10px;margin:8px 0;}
+  .sliderrow{display:flex;align-items:center;gap:14px;margin:14px 0 4px;}
+  .slidercol{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0;}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;
+        background:linear-gradient(90deg,#f0b4b4,#f2d59a,#a9e0c4);outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;
+        background:#fff;border:3px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,.2);cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:#fff;
+        border:3px solid var(--teal);cursor:pointer;}
+  .badge{min-width:118px;text-align:center;font-weight:700;font-size:13px;padding:8px 6px;border-radius:10px;
+        color:#fff;background:var(--grey);transition:background .15s;}
+  .ticks{display:flex;justify-content:space-between;font-size:11px;color:#a7b4b8;padding:0 13px;}
+  textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;
+        font-size:14px;margin-top:12px;resize:vertical;min-height:52px;background:#fbfdfc;}
+  textarea:focus{outline:none;border-color:var(--teal);}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .opt{border:2px solid var(--line);border-radius:22px;padding:9px 16px;font-size:14px;cursor:pointer;
+       background:#fff;user-select:none;}
+  .opt.sel{border-color:var(--teal);background:#eaf6f1;color:var(--teal2);font-weight:700;}
+  .send{display:block;width:100%;background:var(--teal);color:#fff;border:none;border-radius:14px;
+        padding:16px;font-size:17px;font-weight:700;cursor:pointer;margin-top:8px;}
+  .send:active{background:var(--teal2);}
+  .alt{display:block;width:100%;text-align:center;background:none;border:none;color:var(--grey);
+       font-size:13px;margin-top:12px;text-decoration:underline;cursor:pointer;}
+  .anon{font-size:12px;color:var(--grey);text-align:center;margin-top:10px;}
+  .done{display:none;text-align:center;padding:50px 20px;}
+  .done .big{font-size:54px;} .done h2{color:var(--dark);margin:10px 0;}
+  .hint{font-size:12px;color:var(--red);text-align:center;margin-top:8px;display:none;}
+  .foxmark{font-size:12px;color:var(--fox);font-weight:700;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kick">Leichtfuchs · deine Meinung</div>
+    <h1>Was hältst du <span style="color:#8fd3bd">wirklich</span> davon?</h1>
+    <p>Eine Produkt-Idee von mir — und ich will ehrlich wissen, was du denkst.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card intro">
+    Hey 👋 danke, dass du dir kurz Zeit nimmst. Zieh einfach die <b>Regler</b> und schreib gern dazu,
+    was dir durch den Kopf geht. Dauert <b>~3 Minuten</b>, ist <b>anonym</b> (kein Name nötig).
+    <br><br>
+    <b>Ehrliche Skepsis hilft mir mehr als nettes Lob</b> — wenn du was doof findest, sag's ruhig.
+    <div class="scalekey">
+      <div class="k1">1 = seh ich nicht so</div>
+      <div class="k3">3 = weiß nicht</div>
+      <div class="k5">5 = voll dabei</div>
+    </div>
+  </div>
+
+  <div id="questions"></div>
+
+  <!-- Kategorische Fragen -->
+  <div class="card q">
+    <div class="t">Würdest DU 299 € dafür ausgeben?</div>
+    <div class="g">Für dich selbst oder für einen Elternteil — ganz ehrlich.</div>
+    <div class="opts" data-single="preis">
+      <div class="opt">Ja</div><div class="opt">Vielleicht</div><div class="opt">Nein</div>
+    </div>
+    <textarea data-c="preis_warum" placeholder="Warum? (das interessiert mich am meisten)"></textarea>
+  </div>
+
+  <div class="card q">
+    <div class="t">Welcher Name gefällt dir besser?</div>
+    <div class="g">Beide meinen dasselbe Produkt.</div>
+    <div class="opts" data-single="name">
+      <div class="opt">Leichtfuchs</div><div class="opt">Hebnix</div><div class="opt">ganz anderer</div>
+    </div>
+    <textarea data-c="name_idee" placeholder="Falls „ganz anderer“ – welcher? Oder was löst der Name bei dir aus?"></textarea>
+  </div>
+
+  <div class="card q">
+    <div class="t">Nur für die Nutzer (Oma &amp; Co.) 💚</div>
+    <div class="g">Würdest du sowas benutzen? Was müsste es unbedingt können — und was nervt an deiner jetzigen Lösung?</div>
+    <textarea data-c="nutzer" placeholder="Schreib ruhig frei raus…" style="min-height:80px"></textarea>
+  </div>
+
+  <div class="card q">
+    <div class="t">Der größte Haken, den du siehst 🧐</div>
+    <div class="g">Wo würde das scheitern? Was übersehe ich? (Genau das brauche ich.)</div>
+    <textarea data-c="haken" placeholder="Der ehrliche Denkfehler-Check…" style="min-height:80px"></textarea>
+  </div>
+
+  <div class="card q">
+    <div class="t">Hättest du eine Idee, was du anders machen würdest? 💡</div>
+    <div class="g">Optional — jede Idee ist willkommen.</div>
+    <textarea data-c="idee" placeholder="Spinn ruhig rum…"></textarea>
+  </div>
+
+  <button class="send" id="send">Anonym absenden</button>
+  <div class="hint" id="hint">Noch kein Sammel-Postfach eingerichtet — ich schick's dir per Mail. (siehe unten)</div>
+  <button class="alt" id="mailalt">…oder lieber direkt per Mail schicken</button>
+  <div class="anon">🔒 Kein Name, keine Anmeldung. Nur deine ehrliche Meinung.</div>
+
+</div>
+
+<div class="wrap done" id="done">
+  <div class="big">🦊✅</div>
+  <h2>Danke dir – echt!</h2>
+  <p>Deine Bewertung ist raus. Das hilft mir mehr, als du denkst.</p>
+</div>
+
+<script>
+  // ====== HIER DEIN FORMSPREE-CODE REIN (siehe Anleitung) ======
+  const FORMSPREE = "https://formspree.io/f/xqerllla";
+  const MEINE_MAIL = "shipit.hooddrops@gmail.com";
+  // =============================================================
+
+  const items = [
+    {id:"bedarf", t:"So eine Lösung wird wirklich gebraucht.",
+     g:"Denk an Leute, die du kennst – wie vielen würde das helfen?",
+     fact:"Oma wurde 15–20× von Fremden gefragt, woher sie ihre hat. Mama fand online nichts Passendes."},
+    {id:"schmerz", t:"„Heben & Bücken“ ist ein echtes Problem für die Zielgruppe.",
+     g:"Echtes Hindernis – oder halb so wild?",
+     fact:"Selbst die beste Konkurrenz wirbt mit „nur 25 cm Hubhöhe“ – Heben bleibt also."},
+    {id:"preis", t:"299 € ist ein fairer Preis dafür.",
+     g:"Als Einziges löst es das Problem ohne Heben/Bücken.",
+     fact:"Bestehende (schlechtere) Halter kosten 169–249 €."},
+    {id:"kaeufer", t:"Erwachsene Kinder würden das für ihre Eltern kaufen.",
+     g:"Wer zahlt am Ende? Meist die Familie – realistisch?", fact:""},
+    {id:"markt", t:"Es gibt genug potenzielle Kunden.",
+     g:"Reicht der Markt für ein kleines Business?",
+     fact:"In DE ~300.000–600.000 solcher Scooter, Tendenz steigend."},
+    {id:"vorteil", t:"„Ohne Heben“ ist ein klarer Vorteil gegenüber dem, was es gibt.",
+     g:"Starker Unterschied – oder Detail?",
+     fact:"Alle heutigen Halter verlangen Heben; viele passen nicht zu leichten Rollatoren."},
+    {id:"name", t:"„Leichtfuchs“ passt und wirkt vertrauenswürdig.",
+     g:"Würdest du der Marke ein 300-€-Sicherheitsteil zutrauen?", fact:""},
+    {id:"gesamt", t:"Insgesamt glaube ich, dass das funktionieren kann.",
+     g:"Dein Bauchgefühl zum Gesamtbild.", fact:""}
+  ];
+
+  const labels = {1:"seh ich nicht so",2:"eher skeptisch",3:"weiß nicht",4:"eher überzeugt",5:"voll dabei"};
+  const colors = {1:"#d64545",2:"#e07b4a",3:"#e6a817",4:"#5bb37a",5:"#2fa36b"};
+
+  const box = document.getElementById('questions');
+  items.forEach(it=>{
+    const c=document.createElement('div'); c.className='card q';
+    c.innerHTML =
+      '<div class="t">'+it.t+'</div>'+
+      '<div class="g">'+it.g+'</div>'+
+      (it.fact?'<div class="fact">📊 '+it.fact+'</div>':'')+
+      '<div class="sliderrow">'+
+        '<div class="slidercol">'+
+          '<input type="range" min="1" max="5" step="1" value="3" data-s="'+it.id+'">'+
+          '<div class="ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>'+
+        '</div>'+
+        '<span class="badge" id="b_'+it.id+'">3 · weiß nicht</span>'+
+      '</div>'+
+      '<textarea data-c="'+it.id+'_kommentar" placeholder="Kommentar (optional, aber Gold wert)…"></textarea>';
+    box.appendChild(c);
+    const inp=c.querySelector('input'), bad=c.querySelector('.badge');
+    const upd=()=>{const v=+inp.value; bad.textContent=v+' · '+labels[v]; bad.style.background=colors[v];};
+    inp.addEventListener('input',upd); upd();
+  });
+
+  // Single-choice buttons
+  document.querySelectorAll('.opts[data-single]').forEach(g=>{
+    g.querySelectorAll('.opt').forEach(o=>o.addEventListener('click',()=>{
+      g.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel'); g.dataset.value=o.textContent;
+    }));
+  });
+
+  function collect(){
+    const d={};
+    document.querySelectorAll('input[data-s]').forEach(i=>d[i.dataset.s]=i.value);
+    document.querySelectorAll('.opts[data-single]').forEach(g=>d[g.dataset.single]=g.dataset.value||'—');
+    document.querySelectorAll('[data-c]').forEach(t=>{if(t.value.trim())d[t.dataset.c]=t.value.trim();});
+    return d;
+  }
+  function asText(d){
+    return Object.entries(d).map(([k,v])=>k+': '+v).join('\n');
+  }
+  function showDone(){
+    document.querySelectorAll('.wrap:not(#done)').forEach(e=>e.style.display='none');
+    document.querySelector('header').style.display='none';
+    document.getElementById('done').style.display='block';
+    window.scrollTo(0,0);
+  }
+  function mailFallback(){
+    const d=collect();
+    const body=encodeURIComponent("Meine Bewertung zu Leichtfuchs:\n\n"+asText(d));
+    location.href="mailto:"+MEINE_MAIL+"?subject="+encodeURIComponent("Leichtfuchs-Bewertung")+"&body="+body;
+  }
+
+  document.getElementById('send').addEventListener('click',async()=>{
+    const d=collect();
+    if(FORMSPREE.includes("DEIN_CODE")){ document.getElementById('hint').style.display='block'; mailFallback(); return; }
+    try{
+      const r=await fetch(FORMSPREE,{method:'POST',headers:{'Accept':'application/json'},body:new URLSearchParams(d)});
+      if(r.ok){ showDone(); } else { mailFallback(); }
+    }catch(e){ mailFallback(); }
+  });
+  document.getElementById('mailalt').addEventListener('click',mailFallback);
+</script>
+</body>
+</html>
